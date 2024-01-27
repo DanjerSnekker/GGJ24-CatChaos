@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 
@@ -135,13 +136,15 @@ public class GameManager : MonoBehaviour
         //[If players are able to interact with objects when paused, add code to enable their specific components from doing so here.]
     }
 
-    public void ReturnToMenu()
+    public void ReturnToMenu(string levelName)
     {
-        //Load the Main Menu scene.
+        SceneManager.LoadScene(levelName);
     }
 
     public void RetryLevel()
     {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Debug.Log("Reloading Level");
         //Reload the current scene.
     }
 
