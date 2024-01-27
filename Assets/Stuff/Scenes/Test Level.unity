@@ -4361,7 +4361,7 @@ MonoBehaviour:
   loseScreen: {fileID: 1217389794}
   timerDuration: 10
   timerText: {fileID: 1066550291}
-  timerActive: 0
+  timerActive: 1
   pauseMenu: {fileID: 0}
   volSlider: {fileID: 2132548728}
 --- !u!4 &2005328363
