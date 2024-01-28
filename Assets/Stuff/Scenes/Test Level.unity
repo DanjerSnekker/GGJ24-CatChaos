@@ -435,7 +435,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 63369948}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2005328362}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: RetryLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &63369948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2071,7 +2083,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 829287119}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2005328362}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: LoadNewsScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: News
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &829287119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3016,7 +3040,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1084473363}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2005328362}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: PlaySequence
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1084473363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4592,7 +4628,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1609916425}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2005328362}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: ReturnToMenu
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Main Menu
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1609916425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4859,6 +4907,7 @@ GameObject:
   - component: {fileID: 1782761031}
   - component: {fileID: 1782761033}
   - component: {fileID: 1782761032}
+  - component: {fileID: 1782761034}
   m_Layer: 5
   m_Name: Balloon
   m_TagString: Untagged
@@ -4920,6 +4969,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1782761030}
   m_CullTransparentMesh: 1
+--- !u!114 &1782761034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1782761030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 682cd96b2b570384ea8285e525c52c64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 2005328362}
+  targetID: 2
+  highlightScale: {x: 0.05, y: 0.05, z: 0}
 --- !u!1 &1880883653
 GameObject:
   m_ObjectHideFlags: 0
@@ -5026,6 +5090,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9de35e4c86aed454fafd302bd4d3d9f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targets: []
   targetCounter: {fileID: 1411098597}
   targetCount: 3
   winScreen: {fileID: 519048259}
@@ -5061,6 +5126,7 @@ GameObject:
   - component: {fileID: 2018029225}
   - component: {fileID: 2018029227}
   - component: {fileID: 2018029226}
+  - component: {fileID: 2018029228}
   m_Layer: 5
   m_Name: Glass
   m_TagString: Untagged
@@ -5122,6 +5188,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2018029224}
   m_CullTransparentMesh: 1
+--- !u!114 &2018029228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018029224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 682cd96b2b570384ea8285e525c52c64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 2005328362}
+  targetID: 0
+  highlightScale: {x: 0.05, y: 0.05, z: 0}
 --- !u!1 &2049264880
 GameObject:
   m_ObjectHideFlags: 0
@@ -5282,6 +5363,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682cd96b2b570384ea8285e525c52c64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 2005328362}
+  targetID: 1
+  highlightScale: {x: 0.03, y: 0.05, z: 0}
 --- !u!1 &2087420300
 GameObject:
   m_ObjectHideFlags: 0

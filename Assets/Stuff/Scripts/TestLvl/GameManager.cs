@@ -9,7 +9,7 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     //Target Variables
-    List<Target> targets;
+    public List<Target> targets;
 
     public TMP_Text targetCounter;
     public int targetCount;
@@ -42,6 +42,10 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        /*if (!timerActive)
+        {
+            return;
+        }*/
 
     }
 
@@ -69,6 +73,7 @@ public class GameManager : MonoBehaviour
 
     public void WinGame()
     {
+        timerActive = false;
         //Play the corresponding animation
 
         //After the animation is done playing, enable the WIN Screen.
@@ -77,10 +82,21 @@ public class GameManager : MonoBehaviour
 
     public void LoseGame()
     {
+        timerActive = false;
         //Play the corresponding animation
 
         //After the animation is done playing, enable the LOSE Screen.
         loseScreen.SetActive(true);
+    }
+
+    public void LoadNewsScene(string levelName)
+    {
+        SceneManager.LoadScene(levelName);
+    }
+
+    public void UpdateTargetCounter()
+    {
+        targetCounter.text = targets.Count.ToString() + "/" + targetCount;
     }
 
     #endregion
