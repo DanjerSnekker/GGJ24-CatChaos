@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameManager manager;
+
+    public Color highlightCol;
+    public Color selectCol;
+
     void Start()
     {
-        
+        if (manager == null)
+        {
+            manager = GameObject.FindAnyObjectByType<GameManager>();
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
         
