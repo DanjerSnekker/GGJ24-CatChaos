@@ -4,17 +4,27 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.Video;
 
 
 public class GameManager : MonoBehaviour
 {
+    //Tutorial Variables
+    public GameObject tutorialPanel;
+
     //Target Variables
     public List<Target> targets;
 
     public TMP_Text targetCounter;
     public int targetCount;
 
-    //Variable that stores the win animation.
+    public GameObject sequenceButton;
+
+    public VideoPlayer vPlayer;
+    public GameObject screen;
+    bool isPlaying = false;
+
+    public GameObject gameUI;
 
     public GameObject winScreen;
 
@@ -34,19 +44,23 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        timerActive = false;
+
+        sequenceButton.SetActive(false);
         targets = new List<Target>();
 
         targetCounter.text = "0/" + targetCount;
         timerText.text = timerDuration.ToString();
+
+        vPlayer.frame = 3;
+
+        tutorialPanel.SetActive(true);
     }
 
-    void Update()
+    public void Update()
     {
-        /*if (!timerActive)
-        {
-            return;
-        }*/
-
+        if(targets.Count == targetCount)
+            sequenceButton.SetActive(true);
     }
 
     private void FixedUpdate()
@@ -61,22 +75,41 @@ public class GameManager : MonoBehaviour
 
     public void PlaySequence()
     {
+        timerActive = false;
+
         if (targets.Count == targetCount)
         {
-            WinGame();
+            gameUI.SetActive(false);
+
+            PlayVideo(12);
+
         }
-        else
-        {
-            LoseGame();
-        }
+    }
+
+    IEnumerator VidTimer(int timer)
+    {
+        yield return new WaitForSeconds(timer);
+        isPlaying = false;
+        Debug.Log("Stopped playing video");
+        WinGame();
+    }
+
+    public void PlayVideo(int timer)
+    {
+        //Play the corresponding animation
+        screen.SetActive(true);
+        vPlayer.Play();
+        isPlaying = true;
+        StartCoroutine(VidTimer(timer));
     }
 
     public void WinGame()
     {
-        timerActive = false;
-        //Play the corresponding animation
+
+        //vPlayer.Pause();
 
         //After the animation is done playing, enable the WIN Screen.
+        Debug.Log("You Win!!!");
         winScreen.SetActive(true);
     }
 
@@ -143,11 +176,11 @@ public class GameManager : MonoBehaviour
         //[If players are able to interact with objects when paused, add code to disable their specific components from doing so here.]
     }
 
-    public void ResumeGame()
+    public void ResumeGame(GameObject menu)
     {
         timerActive = true;
 
-        pauseMenu.SetActive(false);
+        menu.SetActive(false);
 
         //[If players are able to interact with objects when paused, add code to enable their specific components from doing so here.]
     }
